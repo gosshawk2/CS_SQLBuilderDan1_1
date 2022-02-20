@@ -7,7 +7,10 @@ namespace CS_SQLBuilderDan
 {
     public partial class Form_MAIN : Form
     {
-        
+
+        string FullUser = string.Empty;
+        CS_SQLBuilderDAL DAL = new CS_SQLBuilderDAL();
+
         public string statusMSG1
         {
             get {return this.StsLabel1.Text; }
@@ -34,15 +37,23 @@ namespace CS_SQLBuilderDan
         {
             //var UserID = (System.Security.Principal.WindowsPrincipal)System.Threading.Thread.CurrentPrincipal;
             //System.Security.Principal.WindowsPrincipal P = (System.Security.Principal.WindowsPrincipal)System.Threading.Thread.CurrentPrincipal;
-            string FullUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            FullUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             //AUser = P.Identity.Name;
-            var DAL = new CS_SQLBuilderDAL();
+            
             int SlashPos = FullUser.IndexOf("\\");
             if (SlashPos > 0)
             {
                 Program.CurrentUser = FullUser.Substring(SlashPos + 1);
             }
-            
+
+            /*For Each c As Control In Controls
+                AddHandler c.MouseClick, AddressOf ClickHandler
+            Next */
+            OpenLOGINForm();
+        }
+
+        public void PopulateStatusBar()
+        {
             Program.SystemDatabase = "SQLBuilderDG";
             Program.CurrentServer = FullUser.Substring(0, 15);
             Program.CurrentServerInstance = DAL.GetSQLInstances(FullUser.Substring(0, 15));
@@ -70,13 +81,9 @@ namespace CS_SQLBuilderDan
             StsLabel4.Text = "    Server: " + Program.CurrentServer + "   ";
             StsLabel5.Text = "    Environment: " + Program.CurrentMode + "   ";
             StsLabel6.Text = String.Format("    Version {0}", Assembly.GetExecutingAssembly().GetName().Version) + "   ";
-            
-            /*For Each c As Control In Controls
-                AddHandler c.MouseClick, AddressOf ClickHandler
-            Next */
-
 
         }
+
 
         public void WriteMessage(string StatusMessage)
         {
@@ -89,6 +96,26 @@ namespace CS_SQLBuilderDan
             {
                 this.BringToFront();
             }
+        }
+
+        private void OpenLOGINForm()
+        {
+            //Open child form to show tables imported in grid-like control:
+            var App = new Login();
+
+            Cursor = Cursors.Default;
+            StsLabel1.Text = "Please supply LOGIN details";
+            statusMSG1 = "Open LOGIN form ...";
+            Cursor = Cursors.WaitCursor;
+            //Refresh()
+            App.Visible = false;
+            //App.GetParms(GlobalSession, GlobalParms)
+            //App.PopulateForm()
+            App.MdiParent = this;
+            App.StartPosition = FormStartPosition.CenterParent;
+            App.Show();
+            StsLabel1.Text = "";
+            Cursor = Cursors.Default;
         }
 
         private void OpenTableListForm()
@@ -162,13 +189,27 @@ namespace CS_SQLBuilderDan
         private void mSSQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Set MSSQL database:
+            var App = new Login();
 
+            Cursor = Cursors.Default;
+            statusMSG1 = "Open Login Form: MSSQL";
+            Cursor = Cursors.WaitCursor;
+            //Refresh()
+            //App.Visible = false;
+            //App.GetParms(GlobalSession, GlobalParms)
+            //App.PopulateForm()
+            
+            App.MdiParent = this;
+            App.Show();
+            StsLabel1.Text = "";
+            Cursor = Cursors.Default;
         }
 
         private void mySQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Set MYSQL database:
             Program.DBType = "MYSQL";
+
         }
 
         private void iBMToolStripMenuItem_Click(object sender, EventArgs e)
@@ -210,6 +251,11 @@ namespace CS_SQLBuilderDan
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

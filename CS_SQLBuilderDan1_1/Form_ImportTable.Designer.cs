@@ -93,7 +93,7 @@ namespace CS_SQLBuilderDan
             // lstTables
             // 
             this.lstTables.FormattingEnabled = true;
-            this.lstTables.Location = new System.Drawing.Point(390, 4);
+            this.lstTables.Location = new System.Drawing.Point(453, 4);
             this.lstTables.Name = "lstTables";
             this.lstTables.Size = new System.Drawing.Size(249, 82);
             this.lstTables.TabIndex = 5;
@@ -104,14 +104,14 @@ namespace CS_SQLBuilderDan
             this.lstDatabases.FormattingEnabled = true;
             this.lstDatabases.Location = new System.Drawing.Point(94, 4);
             this.lstDatabases.Name = "lstDatabases";
-            this.lstDatabases.Size = new System.Drawing.Size(223, 82);
+            this.lstDatabases.Size = new System.Drawing.Size(251, 82);
             this.lstDatabases.TabIndex = 4;
             this.lstDatabases.SelectedIndexChanged += new System.EventHandler(this.lstDatabases_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(321, 7);
+            this.label2.Location = new System.Drawing.Point(381, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 2;
@@ -472,7 +472,7 @@ namespace CS_SQLBuilderDan
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlDatabases);
             this.Name = "FrmImportTable";
-            this.Text = "Import Table";
+            this.Text = "Import Table - MS SQL";
             this.Load += new System.EventHandler(this.FrmImportTable_Load);
             this.pnlDatabases.ResumeLayout(false);
             this.pnlDatabases.PerformLayout();

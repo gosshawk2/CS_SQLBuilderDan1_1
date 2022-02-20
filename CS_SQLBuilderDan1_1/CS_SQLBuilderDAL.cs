@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data.Odbc;
 using System.Data.OleDb;
 using System.Data.Common;
+
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -17,6 +18,8 @@ namespace CS_SQLBuilderDan
     {
         Dictionary<string, object> dicValues = new Dictionary<string, object>();
         Dictionary<string, bool> dicExcludeFields = new Dictionary<string, bool>();
+        clsLoginDetails myLoginDetails = new clsLoginDetails();
+        clsLoginDetails MSLoginDetails = new clsLoginDetails();
         string fieldname = string.Empty;
 
         public void AddValues(bool ClearDic, string fieldname, object fieldvalue)
@@ -52,6 +55,32 @@ namespace CS_SQLBuilderDan
             }
             return dt;
         }
+
+        private const String defaultMsSqlInstanceName = "MSSQLSERVER";
+
+        /*public String[] GetLocalSqlServerInstances()
+        {
+            return new ManagedComputer()
+                .ServerInstances
+                .Cast<ServerInstance>()
+                .Select(instance => String.IsNullOrEmpty(instance.Name) || instance.Name == defaultMsSqlInstanceName ?
+                    instance.Parent.Name : Path.Combine(instance.Parent.Name, instance.Name))
+                .ToArray();
+        } */
+
+        /*public DataTable GetSQLServers2()
+        {
+            DataTable dt = null;
+            dt = SmoApplication.EnumAvailableSqlServers(false);
+            if (dt.Rows.Count>0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+
+                }
+            }
+            return dt;
+        } */
 
         public string GetSQLInstances(string FindServerName)
         {

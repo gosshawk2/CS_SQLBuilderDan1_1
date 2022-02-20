@@ -62,6 +62,15 @@ namespace CS_SQLBuilderDan
             this.StsLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.StsLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.StsLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel9 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -130,7 +139,7 @@ namespace CS_SQLBuilderDan
             this.darkToolStripMenuItem,
             this.normalToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.themeToolStripMenuItem.Text = "Theme";
             // 
             // darkToolStripMenuItem
@@ -154,7 +163,7 @@ namespace CS_SQLBuilderDan
             this.mySQLToolStripMenuItem,
             this.iBMToolStripMenuItem});
             this.databaseTypeToolStripMenuItem.Name = "databaseTypeToolStripMenuItem";
-            this.databaseTypeToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.databaseTypeToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.databaseTypeToolStripMenuItem.Text = "Database Type";
             // 
             // mSSQLToolStripMenuItem
@@ -198,7 +207,7 @@ namespace CS_SQLBuilderDan
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(174, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(206, 6);
             // 
             // importTableToolStripMenuItem
             // 
@@ -212,7 +221,7 @@ namespace CS_SQLBuilderDan
             // webView2BrowserToolStripMenuItem
             // 
             this.webView2BrowserToolStripMenuItem.Name = "webView2BrowserToolStripMenuItem";
-            this.webView2BrowserToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.webView2BrowserToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.webView2BrowserToolStripMenuItem.Text = "Web View2 Browser";
             this.webView2BrowserToolStripMenuItem.Click += new System.EventHandler(this.webView2BrowserToolStripMenuItem_Click);
             // 
@@ -282,43 +291,106 @@ namespace CS_SQLBuilderDan
             this.StsLabel3,
             this.StsLabel4,
             this.StsLabel5,
-            this.StsLabel6});
+            this.StsLabel6,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabel5,
+            this.toolStripStatusLabel6,
+            this.toolStripStatusLabel7,
+            this.toolStripStatusLabel8,
+            this.toolStripStatusLabel9});
             this.statusStrip1.Location = new System.Drawing.Point(0, 659);
-            this.statusStrip1.MinimumSize = new System.Drawing.Size(0, 0);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1004, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // StsLabel1
             // 
             this.StsLabel1.Name = "StsLabel1";
-            this.StsLabel1.Size = new System.Drawing.Size(0, 665);
+            this.StsLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // StsLabel2
             // 
             this.StsLabel2.Name = "StsLabel2";
-            this.StsLabel2.Size = new System.Drawing.Size(0, 665);
+            this.StsLabel2.Size = new System.Drawing.Size(0, 17);
             // 
             // StsLabel3
             // 
             this.StsLabel3.Name = "StsLabel3";
-            this.StsLabel3.Size = new System.Drawing.Size(0, 665);
+            this.StsLabel3.Size = new System.Drawing.Size(0, 17);
             // 
             // StsLabel4
             // 
             this.StsLabel4.Name = "StsLabel4";
-            this.StsLabel4.Size = new System.Drawing.Size(0, 665);
+            this.StsLabel4.Size = new System.Drawing.Size(0, 17);
             // 
             // StsLabel5
             // 
             this.StsLabel5.Name = "StsLabel5";
-            this.StsLabel5.Size = new System.Drawing.Size(0, 665);
+            this.StsLabel5.Size = new System.Drawing.Size(0, 17);
             // 
             // StsLabel6
             // 
             this.StsLabel6.Name = "StsLabel6";
-            this.StsLabel6.Size = new System.Drawing.Size(0, 665);
+            this.StsLabel6.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel3.Text = "toolStripStatusLabel3";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel4.Text = "toolStripStatusLabel4";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel5.Text = "toolStripStatusLabel5";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel6.Text = "toolStripStatusLabel6";
+            // 
+            // toolStripStatusLabel7
+            // 
+            this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
+            this.toolStripStatusLabel7.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel7.Text = "toolStripStatusLabel7";
+            // 
+            // toolStripStatusLabel8
+            // 
+            this.toolStripStatusLabel8.Name = "toolStripStatusLabel8";
+            this.toolStripStatusLabel8.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel8.Text = "toolStripStatusLabel8";
+            // 
+            // toolStripStatusLabel9
+            // 
+            this.toolStripStatusLabel9.Name = "toolStripStatusLabel9";
+            this.toolStripStatusLabel9.Size = new System.Drawing.Size(118, 15);
+            this.toolStripStatusLabel9.Text = "toolStripStatusLabel9";
             // 
             // Form_MAIN
             // 
@@ -378,6 +450,15 @@ namespace CS_SQLBuilderDan
         private System.Windows.Forms.ToolStripMenuItem RestoreAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CloseAllToolStripMenuItem;
         public System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel9;
     }
 }
 
