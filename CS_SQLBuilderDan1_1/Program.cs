@@ -29,6 +29,7 @@ namespace CS_SQLBuilderDan
         public static IntPtr ParentHandle;
         public static Form ParentForm;
         public static Form_MAIN MainForm;
+        public static Boolean LoggedIn;
         [STAThread]
         
         static void Main()

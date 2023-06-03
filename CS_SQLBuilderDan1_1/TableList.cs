@@ -64,7 +64,7 @@ namespace CS_SQLBuilderDan
 
         private void PopulateGrid()
         {
-            Program.MainForm.statusMSG1 = "Getting Tables ...";
+            //Program.MainForm.statusMSG1 = "Getting Tables ..."; - gives error.
             DataTable dt = null;
             string ConnString = string.Empty;
             string DBTable = string.Empty;
@@ -72,7 +72,8 @@ namespace CS_SQLBuilderDan
             
             var DAL = new CS_SQLBuilderDAL();
             //Populate Header class with any search text entered by user before populating from database:
-            Header.ConString = string.Empty;
+            Header.ConString = Helper.MS_LoginDetails.connString;
+            //Header.ConString = string.Empty;
             Header.DatasetID = 0;
             Header.DatasetName = txtDatasetName.Text;
             Header.DatabaseName = txtDatabase.Text;
@@ -91,10 +92,10 @@ namespace CS_SQLBuilderDan
             Header.Port = string.Empty;
             Header.Tables = cboTables.Checked;
             Header.Views = cboViews.Checked;
-
+            
             dt = DAL.GetHeaderList(Header);
             dgvTableList.DataSource = dt;
-            Program.MainForm.statusMSG1 = "Ready>";
+            //Program.MainForm.statusMSG1 = "Ready>";
         }
 
 
@@ -111,6 +112,7 @@ namespace CS_SQLBuilderDan
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             //Call PopulateGrid()
+            //Apply filter...
             PopulateGrid();
         }
 

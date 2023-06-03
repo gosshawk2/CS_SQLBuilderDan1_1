@@ -405,7 +405,9 @@ namespace CS_SQLBuilderDan
             this.MinimumSize = new System.Drawing.Size(1020, 675);
             this.Name = "Form_MAIN";
             this.Text = "SQL Builder in C#";
+            this.Activated += new System.EventHandler(this.Form_MAIN_Activated);
             this.Load += new System.EventHandler(this.Form_MAIN_Load);
+            this.Enter += new System.EventHandler(this.Form_MAIN_Enter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

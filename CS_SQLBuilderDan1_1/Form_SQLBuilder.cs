@@ -176,6 +176,10 @@ namespace CS_SQLBuilderDan
             
         }
 
-        
+        private void gbSortResults_Enter(object sender, EventArgs e)
+        {
+            // Sort Results control clicked:
+
+        }
     }
 }

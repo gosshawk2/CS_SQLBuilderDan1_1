@@ -44,7 +44,6 @@ namespace CS_SQLBuilderDan
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvColumnList = new System.Windows.Forms.DataGridView();
             this.gbFilterRecords = new System.Windows.Forms.GroupBox();
-            this.dgvConditions = new System.Windows.Forms.DataGridView();
             this.txtEditCondition = new System.Windows.Forms.TextBox();
             this.btnEditCondition = new System.Windows.Forms.Button();
             this.txtINvalues = new System.Windows.Forms.TextBox();
@@ -64,6 +63,8 @@ namespace CS_SQLBuilderDan
             this.lblOperator = new System.Windows.Forms.Label();
             this.lblColumn = new System.Windows.Forms.Label();
             this.txtValue = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dgvConditions = new System.Windows.Forms.DataGridView();
             this.gbSaveOptions = new System.Windows.Forms.GroupBox();
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,7 +95,6 @@ namespace CS_SQLBuilderDan
             this.btnRemoveSelectedFields = new System.Windows.Forms.Button();
             this.btnAddSelectedFields = new System.Windows.Forms.Button();
             this.btnMoveSelectedFieldsUP = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -284,19 +284,11 @@ namespace CS_SQLBuilderDan
             this.gbFilterRecords.Controls.Add(this.txtValue);
             this.gbFilterRecords.Controls.Add(this.label5);
             this.gbFilterRecords.Controls.Add(this.dgvConditions);
-            this.gbFilterRecords.Location = new System.Drawing.Point(4, 420);
+            this.gbFilterRecords.Location = new System.Drawing.Point(-2, 420);
             this.gbFilterRecords.Name = "gbFilterRecords";
             this.gbFilterRecords.Size = new System.Drawing.Size(753, 235);
             this.gbFilterRecords.TabIndex = 27;
             this.gbFilterRecords.TabStop = false;
-            // 
-            // dgvConditions
-            // 
-            this.dgvConditions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConditions.Location = new System.Drawing.Point(324, 102);
-            this.dgvConditions.Name = "dgvConditions";
-            this.dgvConditions.Size = new System.Drawing.Size(419, 89);
-            this.dgvConditions.TabIndex = 29;
             // 
             // txtEditCondition
             // 
@@ -484,6 +476,24 @@ namespace CS_SQLBuilderDan
             this.txtValue.Size = new System.Drawing.Size(147, 20);
             this.txtValue.TabIndex = 20;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(323, 86);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Conditions:";
+            this.label5.Visible = false;
+            // 
+            // dgvConditions
+            // 
+            this.dgvConditions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConditions.Location = new System.Drawing.Point(324, 102);
+            this.dgvConditions.Name = "dgvConditions";
+            this.dgvConditions.Size = new System.Drawing.Size(419, 89);
+            this.dgvConditions.TabIndex = 29;
+            // 
             // gbSaveOptions
             // 
             this.gbSaveOptions.Controls.Add(this.txtFilePath);
@@ -581,12 +591,13 @@ namespace CS_SQLBuilderDan
             this.gbSortResults.Controls.Add(this.btnAddSortFields);
             this.gbSortResults.Controls.Add(this.btnRemoveSortFields);
             this.gbSortResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbSortResults.Location = new System.Drawing.Point(4, 218);
+            this.gbSortResults.Location = new System.Drawing.Point(9, 218);
             this.gbSortResults.Name = "gbSortResults";
             this.gbSortResults.Size = new System.Drawing.Size(489, 196);
             this.gbSortResults.TabIndex = 26;
             this.gbSortResults.TabStop = false;
             this.gbSortResults.Text = "Sort the Results into the Following Sequence:";
+            this.gbSortResults.Enter += new System.EventHandler(this.gbSortResults_Enter);
             // 
             // dgvSortFields
             // 
@@ -833,16 +844,6 @@ namespace CS_SQLBuilderDan
             this.btnMoveSelectedFieldsUP.Text = "▲";
             this.btnMoveSelectedFieldsUP.UseVisualStyleBackColor = true;
             this.btnMoveSelectedFieldsUP.Click += new System.EventHandler(this.btnMoveSelectedFieldsUP_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(323, 86);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Conditions:";
-            this.label5.Visible = false;
             // 
             // Form_SQLBuilder
             // 

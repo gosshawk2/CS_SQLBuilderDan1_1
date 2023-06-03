@@ -38,8 +38,9 @@ namespace CS_SQLBuilderDan
             //var UserID = (System.Security.Principal.WindowsPrincipal)System.Threading.Thread.CurrentPrincipal;
             //System.Security.Principal.WindowsPrincipal P = (System.Security.Principal.WindowsPrincipal)System.Threading.Thread.CurrentPrincipal;
             FullUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            Program.LoggedIn = false;
             //AUser = P.Identity.Name;
-            
+            Program.DBType = "MSSQL_ODBC";
             int SlashPos = FullUser.IndexOf("\\");
             if (SlashPos > 0)
             {
@@ -256,6 +257,22 @@ namespace CS_SQLBuilderDan
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void Form_MAIN_Activated(object sender, EventArgs e)
+        {
+            if (Program.LoggedIn == true)
+            {
+                MessageBox.Show("LOGGED IN", "LOGGED IN OK", MessageBoxButtons.OK);
+                OpenTableListForm();
+            }
+            
+        }
+
+        private void Form_MAIN_Enter(object sender, EventArgs e)
+        {
+            //OpenTableListForm();
+            MessageBox.Show("Form Enter", "FORM ENTER EVENT", MessageBoxButtons.OK);
         }
     }
 }

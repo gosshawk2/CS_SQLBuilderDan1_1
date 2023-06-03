@@ -18,6 +18,7 @@ namespace CS_SQLBuilderDan
         private string _ipv6addr = string.Empty;
         private string _computername = string.Empty;
         private string _connString = string.Empty;
+        private string _DBType = string.Empty;
 
         public string ServerName
         {
@@ -64,5 +65,14 @@ namespace CS_SQLBuilderDan
             get => _computername; set { _computername = value; }
         }
 
+        public string connString
+        {
+            get => _connString; set { _connString = value; }
+        }
+
+        public string DBType
+        {
+            get => _DBType; set { _DBType = value; }
+        }
     }
 }

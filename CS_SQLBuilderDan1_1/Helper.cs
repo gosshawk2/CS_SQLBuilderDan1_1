@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Text;
-using System.Collections;
-using System.Collections.Specialized;
-
-namespace CS_SQLBuilderDan
+﻿namespace CS_SQLBuilderDan
 {
     public static class Helper
     {
@@ -25,8 +18,59 @@ namespace CS_SQLBuilderDan
             //string SQLODBCCon = "DRIVER={ODBC Driver 17 for SQL Server}; Server=desktop-flf11k6\\mssqlserverdev; Database=SQLBuilderDG;Trusted_Connection=yes;";
             string SQLODBCCon = $"Driver={ODBCDriver}; Server={FullServerName}; Database={DBName};Trusted_Connection=yes;";
             string ConString2 = "user id = username; password=password;server=serverurl;Trusted_Connection=yes;database=database;connection timeout=30";
+            //ConnString = String.Format("server={0}; user id={1}; password={2}; database={3}; Convert Zero Datetime={4}; port={5}; pooling=false", Server, USERNAME, password, DbaseName, ZeroDatetime, port)
+
+            string MySQLCon = $"Server={FullServerName}; user id={FullServerName}; Database={DBName};Trusted_Connection=yes;";
+            if (ConnName == "SQLOLE")
+            {
+                return SQLOLECon;
+            }
+            else if (ConnName == "SQLODBC")
+            {
+                return SQLODBCCon;
+            }
+            else if (ConnName == "MySQL")
+            {
+                return MySQLCon;
+            }
+            return null;
+        }
+
+        public static string conn2(string ConnName, string ServerName, string ServerInstance, string DBName,
+            string Username, string Password, string Port, string DataSourceIP)
+        {
+            string ODBCDriver = "{ODBC Driver 17 for SQL Server}";
+            string FullServerName = ServerName;
+            string SQLOLECon = string.Empty;
+            string SQLODBCCon = string.Empty;
+            if (ServerInstance != string.Empty)
+            {
+                FullServerName = ServerName + "\\" + ServerInstance;
+            }
+            if (Port != string.Empty)
+            {
+                FullServerName += "," + Port;
+            }
+            //Driver ={ SQL Server}; Server = myServerName,myPortNumber; Database = myDataBase; Uid = myUsername; Pwd = myPassword;
+            // string SQLOLECon = "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SQLBuilderDG;Data Source=DESKTOP-F63E7OI";
+            //string SQLOLECon = "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SQLBuilderDG;Data Source=DESKTOP-FLF11K6";
+            //Provider=sqloledb;Data Source=myServerAddress;Initial Catalog=myDataBase;User Id=myUsername;Password=myPassword;
+            if (DataSourceIP != string.Empty)
+            {
+                SQLOLECon = $"Provider=SQLOLEDB.1;Data Source={DataSourceIP};Integrated Security=SSPI;Persist Security Info=False;Initial Catalog={DBName};Data Source={FullServerName};User Id={Username};Password={Password}";
+            }
+            else
+            {
+                SQLOLECon = $"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog={DBName};Data Source={FullServerName};User Id={Username};Password={Password}";
+            }
             
-            string MySQLCon = "";
+            //string SQLODBCCon = "DRIVER={ODBC Driver 17 for SQL Server}; Server=desktop-flf11k6\\mssqlserverdev; Database=SQLBuilderDG;Trusted_Connection=yes;";
+            //Driver ={ SQL Server}; Server = myServerName,myPortNumber; Database = myDataBase; Uid = myUsername; Pwd = myPassword;
+            SQLODBCCon = $"Driver={ODBCDriver}; Server={FullServerName}; Database={DBName};Uid={Username}; Pwd={Password};";
+            string ConString2 = "user id = username; password=password;server=serverurl;Trusted_Connection=yes;database=database;connection timeout=30";
+            //ConnString = String.Format("server={0}; user id={1}; password={2}; database={3}; Convert Zero Datetime={4}; port={5}; pooling=false", Server, USERNAME, password, DbaseName, ZeroDatetime, port)
+
+            string MySQLCon = $"Server={FullServerName}; user id={FullServerName}; Password={Password};Database={DBName};Trusted_Connection=yes;";
             if (ConnName == "SQLOLE")
             {
                 return SQLOLECon;
@@ -53,6 +97,7 @@ namespace CS_SQLBuilderDan
             my_LoginDetails.IPv4Addr = ip4;
             my_LoginDetails.IPv6Addr = ip6;
             my_LoginDetails.ComputerName = computername;
+            my_LoginDetails.connString = conn2("MYSQL",server,"",database,username,password,port,"");
 
             return my_LoginDetails;
         }
@@ -69,6 +114,7 @@ namespace CS_SQLBuilderDan
             MS_LoginDetails.IPv4Addr = ip4;
             MS_LoginDetails.IPv6Addr = ip6;
             MS_LoginDetails.ComputerName = computername;
+            MS_LoginDetails.connString = conn2("", server, instance, database, username, password, port, "");
 
             return MS_LoginDetails;
         }
